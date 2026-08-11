@@ -25,27 +25,27 @@ The application allows users to create an account, log in, add expenses, view th
 
 ### 🔐 Login Page
 
-![Login Page](screenshots/login.png)
+![Login Page](src/main/resources/screenshots/login.png)
 
 ### 👤 Create Account
 
-![Create Account](screenshots/create-account.png)
+![Create Account](src/main/resources/screenshots/create-account.png)
 
 ### 🏠 Dashboard
 
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](src/main/resources/screenshots/dashboard.png)
 
 ### ➕ Add Expense
 
-![Add Expense](screenshots/add-expense.png)
+![Add Expense](src/main/resources/screenshots/add-expense.png)
 
 ### 📋 My Expenses
 
-![My Expenses](screenshots/my-expenses.png)
+![My Expenses](src/main/resources/screenshots/my-expenses.png)
 
 ### ✏️ Update Expense
 
-![Update Expense](screenshots/update-expense.png)
+![Update Expense](src/main/resources/screenshots/update-expense.png)
 
 
 
