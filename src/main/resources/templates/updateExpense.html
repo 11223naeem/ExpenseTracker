@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Update Expense</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<style>
+
+body {
+
+    margin: 0;
+
+    font-family: "Segoe UI", sans-serif;
+
+    background: #f4f4f4;
+
+}
+
+
+.container {
+
+    width: 95%;
+
+    max-width: 1100px;
+
+    margin: 25px auto;
+
+}
+
+
+.card {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,0.12);
+
+}
+
+
+h1 {
+
+    text-align: center;
+
+    color: #333;
+
+    margin-bottom: 20px;
+
+}
+
+
+label {
+
+    display: block;
+
+    margin-top: 15px;
+
+    margin-bottom: 7px;
+
+    color: #555;
+
+}
+
+
+input,
+textarea {
+
+    width: 100%;
+
+    padding: 10px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 4px;
+
+    box-sizing: border-box;
+
+}
+
+
+textarea {
+
+    height: 80px;
+
+    resize: vertical;
+
+}
+
+
+button {
+
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 4px;
+
+    background: #4CAF50;
+
+    color: white;
+
+    cursor: pointer;
+
+}
+
+
+button:hover {
+
+    background: #45a049;
+
+}
+
+
+.back {
+
+    display: block;
+
+    text-align: center;
+
+    margin-top: 20px;
+
+    color: #4CAF50;
+
+    text-decoration: none;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+    <div class="card">
+
+
+        <h1> Update Expense</h1>
+
+
+        <form action="/updateExpense" method="post">
+
+
+            <!-- Expense ID -->
+
+            <input type="hidden" name="id"th:value="${expense.id}">
+
+
+            <label>Expense Name:</label>
+
+            <input type="text"name="expenseName"th:value="${expense.expenseName}"required>
+
+
+            <label> Amount:</label>
+
+            <input type="number"name="amount"step="0.01"min="0"th:value="${expense.amount}"required>
+
+            <label> Date:</label>
+
+            <input type="date"name="date"th:value="${expense.date}"required>
+
+			<label> Description: </label>
+
+            <textarea name="description" required th:text="${expense.description}"></textarea>
+
+            <button type="submit">
+
+                Update Expense
+
+            </button>
+
+        </form>
+
+
+        <a href="/expenseList"
+           class="back">
+
+            ← Back to Expense List
+
+        </a>
+
+
+    </div>
+
+</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Expense Tracker</title>
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+
+<style>
+
+body {
+
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    background: #f4f4f4;
+
+    color: #333;
+
+}
+
+
+.container {
+
+    width: 95%;
+
+    max-width: 1200px;
+
+    margin: 60px auto;
+
+}
+
+
+.card {
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,0.12);
+
+}
+
+
+h1 {
+
+    text-align: center;
+
+    margin-bottom: 20px;
+
+}
+
+
+.links {
+
+    text-align: center;
+
+    margin-bottom: 30px;
+
+}
+
+
+.links a {
+
+    color: #4CAF50;
+
+    text-decoration: none;
+
+    margin: 0 15px;
+
+}
+
+
+.links a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+.description {
+
+    font-size: 14px;
+
+}
+
+
+.logout {
+
+    text-align: right;
+
+    margin-bottom: 20px;
+
+}
+
+
+.logout a {
+
+    color: #d9534f;
+
+    text-decoration: none;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+    <div class="card">
+
+
+        <div class="logout">
+
+            <a href="/logout">
+                Logout
+            </a>
+
+        </div>
+
+
+        <h1>
+            Welcome to Expense Tracker
+        </h1>
+
+
+        <div class="links">
+
+            <a href="/addExpense">
+                Add Expense
+            </a>
+
+
+            <a href="/expenseList">
+                Expense List
+            </a>
+
+        </div>
+
+
+        <p class="description">
+
+            Track and manage your expenses effectively.
+            Use the navigation links to add new expenses
+            or view your expense history.
+
+        </p>
+
+
+    </div>
+
+</div>
+
+
+</body>
+
+</html>

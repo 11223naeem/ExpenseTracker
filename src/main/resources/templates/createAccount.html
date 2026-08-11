@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Create Bank Account</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+    --bg: #f4f7fb;
+    --card: #ffffff;
+    --text: #222;
+    --primary: linear-gradient(135deg, #667eea, #764ba2);
+    --secondary: linear-gradient(135deg, #43cea2, #185a9d);
+}
+
+.dark {
+    --bg: #121212;
+    --card: #1e1e1e;
+    --text: #f5f5f5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    transition: 0.3s;
+}
+
+.toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--secondary);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 500px;
+    margin: 80px auto;
+    padding: 20px;
+}
+
+.card {
+    background: var(--card);
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    color: #fff;
+    background: var(--primary);
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.note {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<button class="toggle" onclick="toggleTheme()">🌙 Toggle</button>
+
+<div class="container">
+    <div class="card">
+        <h2>Create Bank Account</h2>
+
+        <!-- Servlet Connection -->
+        <form action="/CreateAccounts"  onsubmit="return validateForm()">
+
+            <input type="text" name="name" placeholder="user name" required>
+
+            <input type="text" name="Email" placeholder="Email" required>
+
+            <input type="password" id="pass" name="pass" placeholder="password" required minlength="6" maxlength="20">
+			<input type="password" id="Cpass" name="Cpass" placeholder="Confirm password" required minlength="6" maxlength="20">
+			<p id="errorMsg"
+			   th:text="${error}"
+			   th:style="${error != null ? 'color:red; display:block;' : 'display:none;'}">
+			</p>
+			
+
+            <button type="submit">Create Account</button>
+        </form>
+
+        <p class="note">
+            Your account details are stored securely.
+        </p>
+    </div>
+</div>
+
+<script>
+function validateForm() {
+    let passField = document.getElementById("pass");
+    let cpassField = document.getElementById("cpass");
+    let error = document.getElementById("errorMsg");
+
+    let pass = passField.value;
+    let cpass = cpassField.value;
+
+    // Length check
+    if (pass.length < 6 || pass.length > 20) {
+        error.style.display = "block";
+        error.innerText = "Password must be between 6 and 20 characters";
+
+        passField.focus(); // 🔥 move cursor
+        passField.scrollIntoView({behavior: "smooth", block: "center"}); // 🔥 scroll
+
+        return false;
+    }
+
+    // Match check
+    if (pass !== cpass) {
+        error.style.display = "block";
+        error.innerText = "Passwords do not match";
+
+        cpassField.focus(); // 🔥 move cursor
+        cpassField.scrollIntoView({behavior: "smooth", block: "center"});
+
+        return false;
+    }
+
+    error.style.display = "none";
+    return true;
+}
+
+function toggleTheme() {
+    document.body.classList.toggle("dark");
+}
+</script>
+
+</body>
+</html>
